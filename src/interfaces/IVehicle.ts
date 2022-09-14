@@ -9,3 +9,4 @@ const zodVehicle = z.object({
 });
 
 export type IVehicle = z.infer<typeof zodVehicle>;
+export default zodVehicle;
