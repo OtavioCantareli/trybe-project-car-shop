@@ -26,4 +26,23 @@ export default class CarController {
 
     return response.status(200).json(allCars);
   }
+
+  public async readOne(request: Request, response: Response<ICar | object>) {
+    const { id } = request.params;
+
+    const errorWrongChars = 'Id must have 24 hexadecimal characters';
+    const errorNotFound = 'Object not found';
+
+    if (id.length !== 24) {
+      return response
+        .status(400)
+        .json({ error: errorWrongChars });
+    }
+
+    const car = await this._service.readOne(id);
+
+    if (!car) return response.status(404).json({ error: errorNotFound });
+
+    return response.status(200).json(car);
+  }
 }
