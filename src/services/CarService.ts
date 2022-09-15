@@ -26,8 +26,6 @@ export default class CarService implements ICarService<ICar> {
   public async readOne(string: string): Promise<ICar | null> {
     const car = await this._car.readOne(string);
 
-    if (!car) throw new Error('No elements found.');
-
     return car;
   }
 
