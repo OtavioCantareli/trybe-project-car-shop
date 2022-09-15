@@ -6,6 +6,7 @@ import CarModel from "../../../models/CarModel";
 
 import { Model } from "mongoose";
 import {
+  id,
   modelCreate,
   modelCreateWithId,
   modelRead,
@@ -42,7 +43,7 @@ describe("Car Model", () => {
     });
 
     it("Read One", async () => {
-      const car = await carModel.readOne("4edd40c86762e0fb12000003");
+      const car = await carModel.readOne(id);
 
       expect(car).to.deep.equal(modelReadOne);
     });
@@ -51,7 +52,7 @@ describe("Car Model", () => {
   describe("Update/Delete", () => {
     it("Updating", async () => {
       const updated = await carModel.update(
-        "4edd40c86762e0fb12000003",
+        id,
         modelCreate
       );
 
@@ -59,7 +60,7 @@ describe("Car Model", () => {
     });
 
     it("Deleting", async () => {
-      const deleted = await carModel.delete("4edd40c86762e0fb12000003");
+      const deleted = await carModel.delete(id);
 
       expect(deleted).to.deep.equal(modelRemove);
     });
