@@ -26,13 +26,15 @@ export default class CarService implements ICarService<ICar> {
   public async readOne(string: string): Promise<ICar | null> {
     const car = await this._car.readOne(string);
 
+    if (!car) throw new Error('No elements found.');
+
     return car;
   }
 
   public async update(string: string, obj: ICar): Promise<ICar | null> {
-    const updated = await this._car.update(string, obj);
+    await this._car.update(string, obj);
 
-    return updated;
+    return null;
   }
 
   public async delete(string: string): Promise<ICar | null> {
