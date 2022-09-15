@@ -58,4 +58,13 @@ const modelRemove = {
   doorsQty: 2,
 };
 
-export { modelCreate, modelCreateWithId, modelRead, modelReadOne, modelRemove };
+const id = "4edd40c86762e0fb12000003";
+
+export {
+  modelCreate,
+  modelCreateWithId,
+  modelRead,
+  modelReadOne,
+  modelRemove,
+  id,
+};
