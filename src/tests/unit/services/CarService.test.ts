@@ -59,18 +59,6 @@ describe("Car Service", () => {
 
         expect(car).to.deep.equal(modelReadOne);
       });
-
-      it("Failure", async () => {
-        let error;
-
-        try {
-          await carService.readOne(id);
-        } catch (err: any) {
-          error = err;
-        }
-
-        expect(error.message).to.equal("No elements found.");
-      });
     });
 
     it("Read All", async () => {
