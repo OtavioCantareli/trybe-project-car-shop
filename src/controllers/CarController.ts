@@ -20,4 +20,10 @@ export default class CarController {
       return response.status(400).end();
     }
   }
+
+  public async read(_request: Request, response: Response<ICar[]>) {
+    const allCars = await this._service.read();
+
+    return response.status(200).json(allCars);
+  }
 }
