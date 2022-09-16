@@ -26,7 +26,7 @@ describe("Car Service", () => {
       .resolves(modelReadOne)
       .onSecondCall()
       .resolves(null);
-    sinon.stub(carModel, "update").resolves();
+    sinon.stub(carModel, "update").resolves(modelRemove);
     sinon.stub(carModel, "delete").resolves(modelRemove);
   });
 
@@ -72,7 +72,7 @@ describe("Car Service", () => {
     it("Updating", async () => {
       const updated = await carService.update(id, modelCreate);
 
-      expect(updated).to.equal(null);
+      expect(updated).to.equal(modelRemove);
     });
 
     it("Deleting", async () => {
