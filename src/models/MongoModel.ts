@@ -20,9 +20,8 @@ export default abstract class MongoModel<T> implements IModel<T> {
     return this._model.findOne({ string });
   }
 
-  public async update(_string: string, _obj: T): Promise<T | null> {
-    this._model.updateOne();
-    return null;
+  public async update(string: string, obj: T): Promise<T | null> {
+    return this._model.findOneAndUpdate({ string }, { obj });
   }
 
   public async delete(string: string): Promise<T | null> {
