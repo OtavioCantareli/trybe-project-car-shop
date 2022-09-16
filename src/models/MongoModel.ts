@@ -25,6 +25,6 @@ export default abstract class MongoModel<T> implements IModel<T> {
   }
 
   public async delete(string: string): Promise<T | null> {
-    return this._model.remove(string);
+    return this._model.findOneAndRemove({ string });
   }
 }
