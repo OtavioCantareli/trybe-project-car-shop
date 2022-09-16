@@ -30,9 +30,9 @@ export default class CarService implements ICarService<ICar> {
   }
 
   public async update(string: string, obj: ICar): Promise<ICar | null> {
-    await this._car.update(string, obj);
+    const updated = await this._car.update(string, obj);
 
-    return null;
+    return updated;
   }
 
   public async delete(string: string): Promise<ICar | null> {
